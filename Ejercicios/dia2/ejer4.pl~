@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+use 5.014;
+
+open(FCG,"<","copia") or die "No se puede\n";
+
+while(<FCG>){
+    chomp;
+    if($_=/:.*:/){
+	say $_;
+	say $';
+
+    }
+}
