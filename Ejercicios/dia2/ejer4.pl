@@ -9,7 +9,7 @@ while(<FCG>){
     chomp;
     if($_=/:.*:/){
 	say $_;
-	say $;#'
+	say $';
 	say $&;
 	say $;
 	say '';
