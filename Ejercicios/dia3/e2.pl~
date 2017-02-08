@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+# @author Dmontes
+use warnings;
+use strict;
+
+my %hash;
+my $filename="datos.txt";
+
+
+open FILE,"<",$filename;
+my @file=(<FILE>);
