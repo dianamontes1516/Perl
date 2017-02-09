@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+# @author Dmontes
+use warnings;
+use strict;
+
+my $var1;
+my $var2;
+
+chomp ($var1=<STDIN>);
+chomp ($var2=<STDIN>);
+
+sub suma(){
+    @_; # 
+    
+}

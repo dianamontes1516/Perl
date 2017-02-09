@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+# @author Dmontes
+use warnings;
+use strict;
+
+my $var1;
+my $var2;
+
+
+chomp ($var1=<STDIN>);
+chomp ($var2=<STDIN>);
+
+# ¿Qué pedo, por que no tiene sintaxis para ver los parámetros?!
+sub suma(){
+    #@_; # Es un arreglo
+    #### @_[0] # Esto no se hace aun @_ sea arreglo
+    my $v1=$_[0]; 
+    my $v2=$_[1];
+# Las instrucciones de arriba y de abajo son equivalentes.
+    my $va1=shift; # shift: Arreglos -> Escalar (pop a un arreglo)
+    my $va2=shift;
+
+    print $v1+$v2;
+    print $va1+$va2;
+}
+
+# suma resta multiplicación división
+# subrutina main
+# 

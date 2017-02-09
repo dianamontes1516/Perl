@@ -1,0 +1,83 @@
+#!/usr/bin/perl
+# @author Dmontes
+use warnings;
+use strict;
+
+my $var1;
+my $var2;
+my $var3;
+
+my %HoF = (                          
+    salir   =>  sub { exit },  # Subrutinas impl+icitas, como lambdas function anonima
+    modulo   =>  sub { exit },  # Subrutinas impl+icitas, como lambdas function anonima
+    help   =>  sub { exit },  # Subrutinas impl+icitas, como lambdas function anonima
+    suma    =>  \&suma,
+    resta   =>  \&resta,
+    multi   =>  \&multi,
+    divi    =>  \&divi,
+);
+
+
+sub main{
+    my $ciclo = 1;
+    while($ciclo){
+	print "Hola ! \n Introduce la operación que quieres realizar:\n";
+	print "1) Salir\n";
+	print "2) Suma\n";
+	print "3) Resta\n";
+	print "4) Multiplicacion\n";
+	print "5) Division\n";
+	chomp ($var1=<STDIN>);
+
+	if(! ($var1=~/[1-5]/)){
+	    print "Operación inválida. Intenta de nuevo. \n";
+	    next;
+	}
+	
+	if($var1 == 1) {
+	    $ciclo = 0;
+	    last;
+	}
+	print "Introduce los operandos\n";
+	chomp ($var2=<STDIN>);
+	chomp ($var3=<STDIN>);
+	if($var1==2) { 
+	    &suma($var2,$var3);
+	}elsif($var1==3){
+	    &resta($var2,$var3);
+	}elsif($var1==4){
+	    &multiplicacion($var2,$var3);
+	}elsif($var1==5){
+	    &division($var2,$var3);
+	}
+    }
+}
+
+sub suma{
+    print "Resultado:" , $_[0]+$_[1], "\n";
+}
+sub resta(){
+    my $v1=$_[0]; 
+    my $v2=$_[1];
+    print "Resultado:" , $v1-$v2, "\n";
+}
+sub multiplicacion{
+    my $v1=$_[0]; 
+    my $v2=$_[1];
+    print "Resultado: " , $v1*$v2, "\n";
+}
+sub division{
+    my $v1=$_[0]; 
+    my $v2=$_[1];
+    if($v2==0){
+	print "Error: div entre 0\n";
+    }else{
+	print "Resultado: " , $v1/$v2, "\n";
+    }
+}
+
+&main();
+# suma resta multiplicación división
+# subrutina main
+# Recibe tres parámetors
+
