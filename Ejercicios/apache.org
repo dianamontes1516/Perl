@@ -1,0 +1,16 @@
+* Configuración de CGI con Perl y apache
+  1. Instalar apache
+  2. Instalar los módulos perl y cgi de apache
+  3. configurar el archivo /etc/apache2/sites-available/000-default.conf
+       <Directory /var/www/perl>
+          AddHandler cgi-script .pl
+          Options +ExecCGI
+          DirectoryIndex index.pl
+          Order allow,deny
+          Allow from all           
+        </Directory>  
+  4. Crear carpeta /var/www/html/perl
+  5. Copiar los archivos /interfacesAPP.pl/, /interfaces.pm/, template.tmpl
+  6. Comentar el módulo de Config::config del archivo /interfaces.pm/.
+  7. Instalar todos los módulos necesarios para que el archivo /interfacesAPP.pl/
+
